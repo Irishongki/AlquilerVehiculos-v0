@@ -1,8 +1,8 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista;
 
-import java.util.Iterator;
+import javax.naming.OperationNotSupportedException;
 
-import org.iesalandalus.programacion.alquilervehiculos.modelo.Modelo;
+import org.iesalandalus.programacion.alquilervehiculos.controlador.Controlador;
 
 public class Vista {
 
@@ -15,7 +15,7 @@ public class Vista {
 		this.controlador = controlador;
 	}
 
-	public void comenzar() {
+	public void comenzar() throws OperationNotSupportedException {
 		do {
 			Consola.mostrarMenu();
 			ejecutar(Consola.elegirOpcion());
@@ -83,18 +83,30 @@ public class Vista {
 	}
 
 	private void insertarCliente() {
-		Consola.mostrarCabecera("Estamos en la opción --> 1-Insertar Cliente");
-		controlador.insertar(Consola.leerCliente());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 1-Insertar Cliente");
+			controlador.insertar(Consola.leerCliente());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void insertarTurismo() {
-		Consola.mostrarCabecera("Estamos en la opción --> 2-Insertar Turismo");
-		controlador.insertar(Consola.leerTurismo());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 2-Insertar Turismo");
+			controlador.insertar(Consola.leerTurismo());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void insertarAlquiler() {
-		Consola.mostrarCabecera("Estamos en la opción --> 3-Insertar Alquiler");
-		controlador.insertar(Consola.leerAlquiler());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 3-Insertar Alquiler");
+			controlador.insertar(Consola.leerAlquiler());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void buscarCliente() {
@@ -113,28 +125,48 @@ public class Vista {
 	}
 
 	private void modificarCliente() {
-		Consola.mostrarCabecera("Estamos en la opción --> 7-Modificar Cliente");
-		controlador.modificar(Consola.leerClienteDni(), Consola.leerNombre(), Consola.leerTelefono());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 7-Modificar Cliente");
+			controlador.modificar(Consola.leerClienteDni(), Consola.leerNombre(), Consola.leerTelefono());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void devolverAlquiler() {
-		Consola.mostrarCabecera("Estamos en la opción --> 8-Devolver Alquiler");
-		controlador.devolver(Consola.leerAlquiler(), Consola.leerFechaDevolucion());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 8-Devolver Alquiler");
+			controlador.devolver(Consola.leerAlquiler(), Consola.leerFechaDevolucion());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void borrarCliente() {
-		Consola.mostrarCabecera("Estamos en la opción --> 9-Borrar Cliente");
-		controlador.borrar(Consola.leerClienteDni());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 9-Borrar Cliente");
+			controlador.borrar(Consola.leerClienteDni());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void borrarTurismo() {
-		Consola.mostrarCabecera("Estamos en la opción --> 10-Borrar Turismo");
-		controlador.borrar(Consola.leerTurismoMatricula());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 10-Borrar Turismo");
+			controlador.borrar(Consola.leerTurismoMatricula());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void borrarAlquiler() {
-		Consola.mostrarCabecera("Estamos en la opción --> 11-Borrar Alquiler");
-		controlador.borrar(Consola.leerAlquiler());
+		try {
+			Consola.mostrarCabecera("Estamos en la opción --> 11-Borrar Alquiler");
+			controlador.borrar(Consola.leerAlquiler());
+		} catch (OperationNotSupportedException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 	private void listarClientes() {
