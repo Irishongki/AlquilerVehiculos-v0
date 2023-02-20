@@ -25,17 +25,17 @@ public class Controlador {
 		}
 		this.vista = vista;
 		this.modelo = modelo;
-		vista.setControlador(new Controlador(modelo, vista));
+		vista.setControlador(this);
 	}
 
 	public void comenzar() throws OperationNotSupportedException {
-		vista.comenzar();
 		modelo.comenzar();
+		vista.comenzar();	
 	}
 
 	public void terminar() {
-		vista.terminar();
 		modelo.terminar();
+		vista.terminar();
 	}
 
 	public void insertar(Cliente cliente) throws OperationNotSupportedException {

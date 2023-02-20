@@ -45,8 +45,8 @@ public class Modelo {
 		if (alquiler == null) {
 			throw new NullPointerException("ERROR: No se puede realizar un alquiler nulo.");
 		}
-		Cliente clienteBuscado = clientes.buscar(alquiler.getCliente());
-		Turismo turismoBuscado = turismos.buscar(alquiler.getTurismo());
+		Cliente clienteBuscado = buscar(alquiler.getCliente());
+		Turismo turismoBuscado = buscar(alquiler.getTurismo());
 		if (clienteBuscado == null) {
 			throw new OperationNotSupportedException("ERROR: No existe el cliente del alquiler.");
 		}
@@ -58,11 +58,21 @@ public class Modelo {
 	}
 
 	public Cliente buscar(Cliente cliente) {
-		return new Cliente(clientes.buscar(cliente));
+		Cliente clienteBuscado =clientes.buscar(cliente);
+		Cliente clienteAux = null;
+		if(clienteBuscado != null) {
+			clienteAux = new Cliente(clienteBuscado);
+		}
+		return clienteAux;
 	}
 
 	public Turismo buscar(Turismo turismo) {
-		return new Turismo(turismos.buscar(turismo));
+		Turismo turismoBuscado =turismos.buscar(turismo);
+		Turismo turismoAux = null;
+		if(turismoBuscado != null) {
+			turismoAux = new Turismo(turismoBuscado);
+		}
+		return turismoAux;
 	}
 
 	public Alquiler buscar(Alquiler alquiler) {

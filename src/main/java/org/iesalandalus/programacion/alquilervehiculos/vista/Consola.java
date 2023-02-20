@@ -61,13 +61,14 @@ public class Consola {
 		return fecha;
 	}
 
-	public static Opcion elegirOpcion() throws OperationNotSupportedException {
+	public static Opcion elegirOpcion()  {
 		Opcion opcion = null;
 		do {
 			try {
-				int entero = leerEntero("Indroduce la opción:");
-				opcion = opcion.get(entero);
+				int entero = leerEntero("Introduce la opción:");
+				opcion = Opcion.get(entero);
 			} catch (OperationNotSupportedException e) {
+				System.out.printf("%s %n",e.getMessage());
 				opcion = null;
 			}
 		} while (opcion == null);
@@ -82,9 +83,9 @@ public class Consola {
 	}
 
 	public static Cliente leerClienteDni() {
-		Cliente cliente = null;
 		String dni = leerCadena("Introduce el dni:");
-		return cliente.getClienteConDni(dni);
+		Cliente cliente = Cliente.getClienteConDni(dni);
+		return cliente;
 	}
 
 	public static String leerNombre() {
@@ -106,14 +107,14 @@ public class Consola {
 	}
 
 	public static Turismo leerTurismoMatricula() {
-		Turismo turismo = null;
 		String matricula = leerCadena("Introduce la matricula:");
-		return turismo.getTurismoConMatricula(matricula);
+		Turismo turismo = Turismo.getTurismoConMatricula(matricula);
+		return turismo;
 	}
 
 	public static Alquiler leerAlquiler() {
-		Cliente cliente = leerCliente();
-		Turismo turismo = leerTurismo();
+		Cliente cliente = leerClienteDni();
+		Turismo turismo = leerTurismoMatricula();
 		LocalDate fechaAlquiler = leerFecha("Introduce la fecha de Alquiler:");
 		return new Alquiler(cliente, turismo, fechaAlquiler);
 	}

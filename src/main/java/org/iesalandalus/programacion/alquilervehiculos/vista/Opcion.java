@@ -16,16 +16,16 @@ public enum Opcion {
 		this.texto = texto;
 	}
 
-	private boolean esOrdinalValido(int ordinal) {
+	private static boolean esOrdinalValido(int ordinal) {
 		boolean ordinalCorrecto = true;
-		if (ordinal < 0 || ordinal > values().length) {
+		if (ordinal < 0 || ordinal >= values().length) {
 			ordinalCorrecto = false;
 		}
 		return ordinalCorrecto;
 	}
 
-	public Opcion get(int ordinal) throws OperationNotSupportedException {
-		if (esOrdinalValido(ordinal) == false) {
+	public static Opcion get(int ordinal) throws OperationNotSupportedException {
+		if (!esOrdinalValido(ordinal)) {
 			throw new OperationNotSupportedException("El ordinal pasado no es correcto");
 		}
 		return values()[ordinal];
