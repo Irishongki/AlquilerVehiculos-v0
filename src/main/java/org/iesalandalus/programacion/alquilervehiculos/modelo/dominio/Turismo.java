@@ -87,7 +87,7 @@ public class Turismo {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cilindrada, marca, matricula, modelo);
+		return Objects.hash(matricula);
 	}
 
 	@Override
@@ -99,8 +99,7 @@ public class Turismo {
 		if (getClass() != obj.getClass())
 			return false;
 		Turismo other = (Turismo) obj;
-		return cilindrada == other.cilindrada && Objects.equals(marca, other.marca)
-				&& Objects.equals(matricula, other.matricula) && Objects.equals(modelo, other.modelo);
+		return Objects.equals(matricula, other.matricula);
 	}
 
 	@Override

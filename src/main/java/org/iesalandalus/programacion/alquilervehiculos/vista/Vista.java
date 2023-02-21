@@ -137,7 +137,7 @@ public class Vista {
 		try {
 			Consola.mostrarCabecera("Estamos en la opción --> 4-Buscar Cliente");
 			System.out.printf("%n");
-			controlador.buscar(Consola.leerCliente());
+			System.out.print(controlador.buscar(Consola.leerClienteDni()));
 		} catch ( IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
@@ -147,7 +147,7 @@ public class Vista {
 		try {
 			Consola.mostrarCabecera("Estamos en la opción --> 5-Buscar Turismo");
 			System.out.printf("%n");
-			controlador.buscar(Consola.leerTurismo());
+			System.out.print(controlador.buscar(Consola.leerTurismoMatricula()));
 		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
@@ -158,7 +158,7 @@ public class Vista {
 		try {
 			Consola.mostrarCabecera("Estamos en la opción --> 6-Buscar Alquiler");
 			System.out.printf("%n");
-			controlador.buscar(Consola.leerAlquiler());
+			System.out.print(controlador.buscar(Consola.leerAlquiler()));
 		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
