@@ -19,7 +19,7 @@ public class Vista {
 		Opcion opcion;
 		do {
 			Consola.mostrarMenu();
-			opcion =Consola.elegirOpcion();
+			opcion = Consola.elegirOpcion();
 			ejecutar(opcion);
 			System.out.printf("%n%n");
 		} while (opcion != Opcion.SALIR);
@@ -138,7 +138,7 @@ public class Vista {
 			Consola.mostrarCabecera("Estamos en la opción --> 4-Buscar Cliente");
 			System.out.printf("%n");
 			System.out.print(controlador.buscar(Consola.leerClienteDni()));
-		} catch ( IllegalArgumentException | NullPointerException e) {
+		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
 	}
@@ -151,7 +151,7 @@ public class Vista {
 		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
-		
+
 	}
 
 	private void buscarAlquiler() {
@@ -189,6 +189,7 @@ public class Vista {
 			Consola.mostrarCabecera("Estamos en la opción --> 9-Borrar Cliente");
 			System.out.printf("%n");
 			controlador.borrar(Consola.leerClienteDni());
+			System.out.print("El cliente se ha borrado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
@@ -199,7 +200,8 @@ public class Vista {
 			Consola.mostrarCabecera("Estamos en la opción --> 10-Borrar Turismo");
 			System.out.printf("%n");
 			controlador.borrar(Consola.leerTurismoMatricula());
-		} catch (OperationNotSupportedException |IllegalArgumentException | NullPointerException e) {
+			System.out.print("El turismo se ha borrado correctamente.");
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
 	}
@@ -209,7 +211,8 @@ public class Vista {
 			Consola.mostrarCabecera("Estamos en la opción --> 11-Borrar Alquiler");
 			System.out.printf("%n");
 			controlador.borrar(Consola.leerAlquiler());
-		} catch (OperationNotSupportedException| IllegalArgumentException | NullPointerException e) {
+			System.out.print("El Alquiler se ha borrado correctamente.");
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
 		}
 	}
@@ -233,7 +236,7 @@ public class Vista {
 	}
 
 	private void listarAlquileresCliente() {
-		
+
 		try {
 			Consola.mostrarCabecera("Estamos en la opción --> 15-Listar los Alquileres de un Cliente");
 			System.out.printf("%n");

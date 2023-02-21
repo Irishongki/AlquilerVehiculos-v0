@@ -1,6 +1,5 @@
 package org.iesalandalus.programacion.alquilervehiculos.modelo.dominio;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -31,7 +30,7 @@ public class Alquiler {
 		setCliente(new Cliente(alquiler.getCliente()));
 		setTurismo(new Turismo(alquiler.getTurismo()));
 		setFechaAlquiler(alquiler.getFechaAlquiler());
-		setFechaDevolucion(alquiler.getFechaDevolucion());
+		this.fechaDevolucion=alquiler.getFechaDevolucion();
 
 	}
 
